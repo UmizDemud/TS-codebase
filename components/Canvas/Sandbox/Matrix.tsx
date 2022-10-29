@@ -49,11 +49,11 @@ class Effect {
 }
 
 const Matrix = () => {
-	const canvasWidth = useRef(640)
-	const canvasHeight = useRef(480);
+	const canvasWidth = useRef(360)
+	const canvasHeight = useRef(200);
 	const [effect, setEffect] = useState<Effect>();
 	// Modes: 
-	// 0: fullscreen, 1: 640x 480
+	// 0: fullscreen, 1: 360x 200
 	const mode: number = 1;
 
 	const draw = useCallback(
@@ -76,9 +76,6 @@ const Matrix = () => {
 		if (mode === 0) {
 			canvasWidth.current = window.innerWidth;
 			canvasHeight.current = window.innerHeight;
-		} else if (mode === 1) {
-			canvasWidth.current = 640;
-			canvasHeight.current = 480;
 		}
 		
 		setEffect(new Effect(canvasWidth.current, canvasHeight.current));

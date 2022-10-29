@@ -13,18 +13,29 @@ import {
 } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
 import U from "../U";
+import { useState } from "react";
 
 const Navbar = () => {
+	const [openMenu, setOpenMenu] = useState(false)
+
 	return (
 		<nav className={styles.nav}>
-			<div className={styles.logo}>
+		
+			<Link className={styles.logo} href="/">
 				<U width={40} height={50}/>
 				<div className={styles.logoSubtitle}>
-					Umut
+					<span className={styles["subtitle-firstLetter"]}>U</span>mut
 				</div>
+			</Link>
+			<div className={styles["burger-menu-toggle"]}>
+				<div className={styles["hamburger-lines"]}>
+					<input className={styles["checkbox"]} type="checkbox" onChange={() => setOpenMenu(!openMenu)} />
+      	  <span className={styles["line"] + " " +  styles["line1"]}></span>
+      	  <span className={styles["line"] + " " +  styles["line2"]}></span>
+      	  <span className={styles["line"] + " " +  styles["line3"]}></span>
+      	</div>  
 			</div>
-
-			<ul className={styles.inLinks}>
+			<ul style={{display: openMenu ? "flex" : "none"}} className={styles.inLinks}>
 				<li className={styles.link + " " + styles["home-link"]}>
 					<Link href="/">
 						<FaHome size={19} />

@@ -1,15 +1,18 @@
-.container {
-  padding: 0 2rem;
+
+
+.container-shader {
+  padding: 2rem;
+  background: linear-gradient(330deg, rgba(255, 169, 100, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
+  width: 100%;
+  min-height: 100vh;
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .footer {
@@ -40,20 +43,33 @@
 }
 
 .title {
-  margin: 0;
+  margin: 1.4rem 0 1rem;
+  width: 75%;
   line-height: 1.15;
-  font-size: 4rem;
+  border-bottom: 1px solid var(--main);
 }
 
-.title,
-.description {
+h1.title {
   text-align: center;
+  margin: 1rem auto 1.4rem;
+  width: fit-content;
+  padding: 0 1rem;
+  letter-spacing: .1rem;
+}
+
+h4.title {
+  margin: 1.4rem 0 0.75rem;
+  width: 50%;
 }
 
 .description {
-  margin: 4rem 0;
   line-height: 1.5;
-  font-size: 1.5rem;
+}
+
+.text-area {
+  background-color: #fefefe;
+  padding: 1rem 2rem 2rem 2rem;
+  width: 55%;
 }
 
 .code {
@@ -67,10 +83,11 @@
 
 .grid {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 800px;
+  margin-top: 4rem;
 }
 
 .card {
@@ -108,10 +125,26 @@
   margin-left: 0.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+  .text-area {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+  .container-shader {
+    padding: 5.7rem 1rem 1rem;
+  }
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  .matrix-wrapper {
+    margin: 0 auto;
   }
 }
 

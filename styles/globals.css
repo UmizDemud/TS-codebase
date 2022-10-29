@@ -35,7 +35,9 @@
 :root {
   --main: #222;
   --secondary: #22f;
-  --sidebar-background: #dd2;
+  --navbar-main: #cecece;
+  --navbar-secondary: #fefe33;
+  --navbar-background: #222;
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -185,9 +187,13 @@ a {
 .container {
 	position: absolute;
 	right: 0;
-	width: calc(100vw - 6rem);
+	width: calc(100vw - 4.7rem);
   display: flex;
   min-height: 100vh;
+  background: repeating-linear-gradient(0deg, 
+  rgba(50,50,50,0.01), 
+  rgba(60,60,60,0.01) 0.4rem, 
+  rgba(220,220,220,0.01) 1.3rem);
 }
 
 .text-zone {
@@ -205,12 +211,13 @@ a {
   margin-top: 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .container {
     flex-direction: column;
     width: 100%;
   }
   .text-zone {
     width: 100%;
+    margin: 4rem 0 0 0;
   }
 }

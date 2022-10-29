@@ -12,7 +12,7 @@ const AnimatedLetters: FunctionComponent<AnimatedLettersProps> = (props) => {
 		<span>
 			{
 				props.strArray.map((char, i) => (
-					<span key={char + i} className={styles[props.letterClass] + ` _${props.idx}`}>
+					<span key={char + i} className={styles[props.letterClass] + ` _${i + props.idx}`}>
 						{char}
 					</span>
 				))
