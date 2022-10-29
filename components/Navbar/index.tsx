@@ -13,10 +13,19 @@ import {
 } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
 import U from "../U";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-	const [openMenu, setOpenMenu] = useState(false)
+	const [openMenu, setOpenMenu] = useState(true);
+
+	useEffect(() => {
+		window.addEventListener("resize", () => {
+			setOpenMenu(window.innerWidth > 700);
+		}, false);
+
+		setOpenMenu(window.innerWidth > 700);
+	}, [])
+	
 
 	return (
 		<nav className={styles.nav}>
