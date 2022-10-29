@@ -1,0 +1,28 @@
+.U .frontLine {
+	stroke-dasharray: 1869;
+	stroke-dashoffset: 1869;    
+}
+.U .backLine {
+	stroke-dasharray: 1869;
+	stroke-dashoffset: 1869;    
+}
+.U .topLine1 {
+	stroke-dasharray: 129;
+	stroke-dashoffset: 129;    
+}
+.U .topLine2 {
+	stroke-dasharray: 129;
+	stroke-dashoffset: 129;    
+}
+
+.U .toDraw {
+	animation: draw 5s ease-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+    

@@ -34,17 +34,15 @@
 
 :root {
   --main: #222;
+  --secondary: #22f;
+  --sidebar-background: #dd2;
   font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-input,
-textarea {
-  font-family: 'Helvetica Neue', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
