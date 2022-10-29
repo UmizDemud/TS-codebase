@@ -58,8 +58,8 @@ const Matrix = () => {
 
 	const draw = useCallback(
 		(ctx: CanvasRenderingContext2D,  effect: any) => {
-			ctx.font = effect.fontSize + 'px monospace';
 			let eff: Effect = effect as Effect;
+			ctx.font = eff.fontSize + 'px monospace';
 			eff.symbols.forEach(symbol => symbol.draw(ctx));
 			ctx.fillStyle = 'rgba(0,0,0,0.05)';
 			ctx.textAlign = 'center';
