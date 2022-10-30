@@ -1,0 +1,198 @@
+.contact-page {
+	top: 0;
+}
+
+.contact-page .text-zone{
+	margin: 0;
+	padding: 1rem calc(55% + 1rem) 1rem 1rem;
+}
+
+.contact-page input::placeholder, .contact-page textarea::placeholder {
+	color: var(--grey);
+}
+
+.headerContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.text-zone h1 {
+	margin: 2rem;
+	border-bottom: 1px solid var(--main);
+	width: fit-content;
+	padding: 0 1rem;
+}
+
+.contact-page ul {
+	padding: 0;
+	margin: 0;
+}
+	
+.contact-page ul li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	margin-bottom: 10px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	clear: both;
+	position: relative;
+	animation: fadeInUp 2s 2s;
+	animation-fill-mode: forwards;
+}
+
+.contact-page ul li.half {
+	width: 49%;
+	margin-left: 2%;
+	float: left;
+	clear: none;
+}
+
+.contact-page ul li.half:first-child {
+	margin-left: 0;
+}
+
+
+.contact-page input[type='text'], .contact-page input[type='email'] {
+  width: 100%;
+  border: 0;
+  background: #115173;
+  height: 50px;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.contact-page textarea {
+  width: 100%;
+  border: 0;
+  background: #115173;
+  height: 50px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 150px;
+}
+
+.contact-page .flat-button {
+	display: inline-block;
+  color: var(--main);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  padding: 8px 10px;
+  border: 1px solid var(--main);
+  border-radius: 4px;
+  background: 0 0;
+  text-transform: uppercase;
+  text-align: center;
+  margin-right: 10px;
+  cursor: pointer;
+	height: 3rem;
+	background-color: var(--sidebar-main);
+}
+
+.contact-page .flat-button:hover {
+  background: #ffd700;
+  color: #333;
+}
+
+.map-wrap {
+  background: rgba(8, 253, 216, 0.1);
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	bottom: 1rem;
+  width: 53%;
+}
+
+.leaflet-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: backInRight 1s 1.2s;
+  animation-fill-mode: forwards;
+}
+
+.mapButton {
+	font-size: 2rem;
+	width: fit-content;
+	cursor: pointer;
+}
+
+.mapButton:hover {
+	color: #bbb;
+	text-align: center;
+}
+
+.info-map {
+  border: 1px solid white;
+  border-radius: 8px;
+  position: absolute;
+  background: #000;
+  top: 50px;
+  right: 0;
+  z-index: 999999;
+  width: 267px;
+  padding: 20px;
+  color: #fff;
+  font-family: 'Helvetica';
+  font-size: 17px;
+  font-weight: 300;
+  animation: fadeIn 1s 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.info-map span {
+    font-size: 16px;
+}
+    
+.info-map span span {
+  color: #ffd700;
+}
+
+.mapToggle {
+	display: inline-flex;
+	z-index: 999999;
+	flex-direction: column-reverse;
+	align-items: center;
+	text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+	.contact-page {
+		margin-top: 4rem;
+		overflow: scroll;
+	}
+	.contact-page .text-zone {
+		position: initial;
+		width: 100%;
+		padding: 1rem;
+	}
+	.contact-page .text-area {
+		min-height: 20vh;
+		height: 20vh;
+	}
+	.map-wrap {
+		width: 92%;
+		height: 80vh;
+		margin: 5vh auto;
+		position: absolute;
+
+	}
+	.info-map {
+		left: 0;
+		position: relative;
+		top: unset;
+		width: fit-content;
+		bottom: 22vh;
+		font-size: .7rem;
+	}
+}

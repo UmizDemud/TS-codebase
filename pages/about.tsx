@@ -8,7 +8,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import Loader from "react-loaders";
 import AnimatedLetters from "../components/AnimatedLetters";
 import styles from '../styles/About.module.css'
 

@@ -137,6 +137,7 @@
 	display: none;
 	position: relative;
 	height: 100%;
+	z-index: 999;
 }
 
 .hamburger-lines .line {
@@ -223,12 +224,12 @@
 		display: none;
 		position: absolute;
 		top: 4.4rem;
-		right: 0;
+		right: 1rem;
 		background-color:var(--navbar-background);
 		padding: 2rem .5rem;
 		border-radius: 10px;
 		gap: 2rem;
-		width: 7rem;
+		width: 5rem;
 	}
 
 	.inLinks .link:hover svg {

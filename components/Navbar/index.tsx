@@ -13,17 +13,29 @@ import {
 } from "react-icons/fa";
 import { ImBlog } from "react-icons/im";
 import U from "../U";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
 	const [openMenu, setOpenMenu] = useState(true);
+	const ref = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		window.addEventListener("resize", () => {
 			setOpenMenu(window.innerWidth > 700);
 		}, false);
 
-		setOpenMenu(window.innerWidth > 700);
+		function handleClickOutside(event: MouseEvent) {
+			const target = event.target as Node;
+			if (ref.current && !ref.current.contains(target)) {
+				setOpenMenu(window.innerWidth > 700);
+			}
+		}
+		// Bind the event listener
+		document.addEventListener("mousedown", handleClickOutside);
+		return () => {
+			// Unbind the event listener on clean up
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
 	}, [])
 	
 
@@ -36,9 +48,10 @@ const Navbar = () => {
 					<span className={styles["subtitle-firstLetter"]}>U</span>mut
 				</div>
 			</Link>
+			<div ref={ref}>
 			<div className={styles["burger-menu-toggle"]}>
 				<div className={styles["hamburger-lines"]}>
-					<input className={styles["checkbox"]} type="checkbox" onChange={() => setOpenMenu(!openMenu)} />
+				<input checked={openMenu} className={styles["checkbox"]} type="checkbox" onChange={() => setOpenMenu(!openMenu)}/>
       	  <span className={styles["line"] + " " +  styles["line1"]}></span>
       	  <span className={styles["line"] + " " +  styles["line2"]}></span>
       	  <span className={styles["line"] + " " +  styles["line3"]}></span>
@@ -61,7 +74,7 @@ const Navbar = () => {
 					</Link>
 				</li>
 				<li className={styles.link + " " + styles["blog-link"]}>
-					<Link href="/blog">
+					<Link href="https://demut.vercel.app/">
 						<ImBlog size={19} />
 					</Link>
 				</li>
@@ -71,6 +84,7 @@ const Navbar = () => {
 					</Link>
 				</li>
 			</ul>
+			</div>
 			<ul className={styles.outLinks}>
 				<li className={styles.link}>
 					<Link

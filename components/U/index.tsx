@@ -4,9 +4,10 @@ import styles from './U.module.css'
 interface UProps {
 	width: number;
 	height: number;
+	shadow?: boolean;
 }
  
-const U: FunctionComponent<UProps> = ({width, height}) => {
+const U: FunctionComponent<UProps> = ({width, height, shadow}) => {
 	const bentX = 0.037;
 	const bentY = 0.01;
 	const sizeX = 0.14;
@@ -37,8 +38,18 @@ const U: FunctionComponent<UProps> = ({width, height}) => {
 					<stop offset="57%" stopColor={colorGradBack[1]} />
           <stop offset="100%" stopColor={colorGradBack[2]} />
         </linearGradient>
+				
+				<linearGradient id="shadowGrad" gradientTransform="rotate(90)">
+          <stop offset="0%" stopColor="#fff" />
+          <stop offset="100%" stopColor="#000" />
+        </linearGradient>
 			</defs>
+			<g transform={shadow ? "translate(17, 0)" : "rotate(0)"}>
 			<g>
+				{shadow && <path d={`M -10 ${height * 0.2}
+					C ${width * 0.1} ${height * 1.3} ${width} ${height * 1} ${width * 0.64} ${height * 0.2}
+					C ${width * 0.9} ${height * 0.9} ${width * 0.2} ${height * 1} -10 ${height * 0.2}Z`} 
+					 fill="url(#shadowGrad)" /> }
 				<path
 					className={styles["toDraw"] + " " + styles["backLine"]}
 					transform={`translate(-${width * bentX},-${height * bentY})`}
@@ -81,6 +92,7 @@ const U: FunctionComponent<UProps> = ({width, height}) => {
 					stroke="#333"
 					strokeWidth={strokeWidth}
 				></path>
+				</g>
 				</g>
 		</svg>
 	);

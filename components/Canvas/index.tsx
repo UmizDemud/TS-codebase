@@ -4,9 +4,9 @@ interface CanvasProps {
 	width: number,
 	height: number,
 	id: string,
-	draw: (ctx: CanvasRenderingContext2D, {...objs}) => any;
-	objs: any;
-  style: React.CSSProperties;
+	draw: (ctx: CanvasRenderingContext2D, obj: any) => void;
+	objs?: any;
+  style?: React.CSSProperties;
 }
  
 const Canvas: FunctionComponent<CanvasProps> = (props: CanvasProps) => {
@@ -15,6 +15,7 @@ const Canvas: FunctionComponent<CanvasProps> = (props: CanvasProps) => {
 
 
 	useEffect(() => {
+		if (!props.objs) return;
 		if(!canvasRef || !canvasRef.current) return;
 		const canvas = canvasRef.current;
 
@@ -44,7 +45,7 @@ const Canvas: FunctionComponent<CanvasProps> = (props: CanvasProps) => {
 		return () => {
 			window.cancelAnimationFrame(animationFrameId);
 		}
-	})
+	}, [props, props.objs])
 	
 	return (
 		<canvas ref={canvasRef} id={props.id} width={props.width} height={props.height} style={props.style}></canvas>
